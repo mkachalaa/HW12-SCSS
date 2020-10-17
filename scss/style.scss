@@ -1,14 +1,148 @@
-@import "normalize.scss";
+* {
+    padding: 0;
+    margin: 0;
+}
 
 @mixin font-lato {
     font-family: "Roboto", sans-serif;
+}
+
+@mixin logotype {
+    font-size: 26px;
+    font-weight: 900;
+    color: #37447e;
+    border: none;
+}
+
+@mixin start-button {
+    width: 160px;
+    height: 26px;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 18px;
+    border-radius: 2px;
+    cursor: pointer;
+    outline: none;
+    border: none;
+    border-radius: 2px;
+}
+
+.button-main {
+    @include start-button;
+    background: #111b47;
+    color: #ffffff;
+    &:hover {
+        transition: 1s;
+        transform: scale(1.1);
+        background: none;
+        border: 2px solid #091133;
+        box-sizing: border-box;
+        color: #091133;
+    }
+}
+.button-secondary {
+    @include start-button;
+    border: 2px solid #091133;
+    box-sizing: border-box;
+    color: #091133;
+    &:hover {
+        background: #111b47;
+        transition: 1s;
+        transform: scale(1.1);
+        color: #ffffff;
+    }
+}
+
+a {
+    text-decoration: none;
 }
 
 body {
     @include font-lato;
 }
 
+header {
+    height: 100vh;
+    background-image: url(/img/bg-header.png);
+    background-repeat: no-repeat;
+    background-size: 60%;
+    background-position: right;
+}
 .section-inner {
-    width: 1180;
+    max-width: 1180px;
     margin: 0 auto;
+}
+nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    .nav-menu {
+        list-style: none;
+        display: flex;
+        a {
+            font-size: 14px;
+            padding-right: 50px;
+            color: #505f98;
+        }
+        a:last-child {
+            padding: 0;
+        }
+        a:hover {
+            color: #111b47;
+        }
+    }
+    .nav-logotype {
+        display: flex;
+        .logo-text {
+            @include logotype;
+        }
+        .logo-a {
+            padding-top: 15px;
+        }
+        .logo-anime {
+            width: 70%;
+            animation: logo 5s ease-in-out infinite;
+        }
+
+        @keyframes logo {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+    }
+}
+
+.header-block {
+    padding-top: 120px;
+    width: 50%;
+    &_title {
+        font-weight: 500;
+        font-size: 50px;
+        line-height: 66px;
+        padding-bottom: 20px;
+    }
+    &_subtitle {
+        font-weight: 400;
+        font-size: 18px;
+        line-height: 30px;
+        color: #505f98;
+    }
+    &_btn {
+        padding-top: 60px;
+        .button-main {
+            width: 189px;
+            height: 36px;
+            font-size: 16px;
+            margin-right: 30px;
+        }
+        .button-secondary {
+            width: 189px;
+            height: 36px;
+            font-size: 16px;
+        }
+    }
 }

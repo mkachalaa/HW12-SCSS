@@ -169,6 +169,10 @@ header .header-block_btn .button-secondary {
     width: 79%;
     font-size: 12px;
   }
+  header .header-block_btn {
+    padding-top: 30px;
+    display: flex;
+  }
 }
 @media (max-width: 767px) {
   header header {

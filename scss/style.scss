@@ -2,18 +2,16 @@
     padding: 0;
     margin: 0;
 }
-
+///=== MIXIN === ///
 @mixin font-lato {
     font-family: "Roboto", sans-serif;
 }
-
 @mixin logotype {
     font-size: 26px;
     font-weight: 900;
     color: #37447e;
     border: none;
 }
-
 @mixin start-button {
     width: 160px;
     height: 26px;
@@ -26,7 +24,23 @@
     border: none;
     border-radius: 2px;
 }
+///=== / MIXIN === ///
 
+///=== ADAPT === ///
+$screen-xs: 320px;
+$screen-sm: 576px;
+$screen-md: 768px;
+$screen-lg: 992px;
+$screen-xl: 1200px;
+
+$screen-xs-max: 575px;
+$screen-sm-max: 767px;
+$screen-md-max: 991px;
+$screen-lg-max: 1199px;
+
+///=== / ADAPT  === ///
+
+///=== button=== ///
 .button-main {
     @include start-button;
     background: #111b47;
@@ -52,6 +66,7 @@
         color: #ffffff;
     }
 }
+///=== / button === ///
 
 a {
     text-decoration: none;
@@ -59,91 +74,159 @@ a {
 
 body {
     @include font-lato;
+    .section-inner {
+        max-width: 1180px;
+        margin: 0 auto;
+    }
 }
 
+///=== HEADER === ///
 header {
     height: 100vh;
     background-image: url(./img/bg-header.png);
     background-repeat: no-repeat;
-    background-size: 60%;
+    background-size: 62%;
     background-position: right;
-}
-.section-inner {
-    max-width: 1180px;
-    margin: 0 auto;
-}
-nav {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-
-    .nav-menu {
-        list-style: none;
+    nav {
         display: flex;
-        a {
-            font-size: 14px;
-            padding-right: 50px;
+        align-items: center;
+        justify-content: space-between;
+
+        .nav-menu {
+            list-style: none;
+            display: flex;
+            a {
+                font-size: 14px;
+                padding-right: 50px;
+                color: #505f98;
+            }
+            a:last-child {
+                padding: 0;
+            }
+            a:hover {
+                color: #111b47;
+            }
+        }
+        .nav-logotype {
+            display: flex;
+            .logo-text {
+                @include logotype;
+                cursor: pointer;
+            }
+            .logo-a {
+                padding-top: 15px;
+            }
+            .logo-anime {
+                width: 70%;
+                animation: logo 5s ease-in-out infinite;
+            }
+
+            @keyframes logo {
+                0% {
+                    transform: rotate(0deg);
+                }
+                100% {
+                    transform: rotate(360deg);
+                }
+            }
+        }
+    }
+    .header-block {
+        padding-top: 120px;
+        max-width: 539px;
+        &_title {
+            font-weight: 500;
+            font-size: 50px;
+            line-height: 66px;
+            padding-bottom: 20px;
+        }
+        &_subtitle {
+            font-weight: 400;
+            font-size: 18px;
+            line-height: 30px;
+            color: #505f98;
+            width: 88%;
+        }
+        &_subtitles {
+            padding-top: 10px;
+            font-weight: 400;
+            font-size: 18px;
+            line-height: 30px;
             color: #505f98;
         }
-        a:last-child {
-            padding: 0;
-        }
-        a:hover {
-            color: #111b47;
-        }
-    }
-    .nav-logotype {
-        display: flex;
-        .logo-text {
-            @include logotype;
-        }
-        .logo-a {
-            padding-top: 15px;
-        }
-        .logo-anime {
-            width: 70%;
-            animation: logo 5s ease-in-out infinite;
-        }
 
-        @keyframes logo {
-            0% {
-                transform: rotate(0deg);
+        &_btn {
+            padding-top: 60px;
+            .button-main {
+                width: 189px;
+                height: 36px;
+                font-size: 16px;
+                margin-right: 30px;
             }
-            100% {
-                transform: rotate(360deg);
+            .button-secondary {
+                width: 189px;
+                height: 36px;
+                font-size: 16px;
             }
         }
     }
-}
 
-.header-block {
-    padding-top: 120px;
-    width: 50%;
-    &_title {
-        font-weight: 500;
-        font-size: 50px;
-        line-height: 66px;
-        padding-bottom: 20px;
-    }
-    &_subtitle {
-        font-weight: 400;
-        font-size: 18px;
-        line-height: 30px;
-        color: #505f98;
-        width: 80%;
-    }
-    &_btn {
-        padding-top: 60px;
-        .button-main {
-            width: 189px;
-            height: 36px;
-            font-size: 16px;
-            margin-right: 30px;
+    @media (max-width: $screen-xs-max) {
+        .header-block {
+            min-width: 0%;
+            padding-top: 25px;
+            &_title {
+                font-size: 20px;
+                line-height: 40px;
+                text-align: center;
+                padding-left: 40px;
+            }
+            &_subtitle {
+                width: 70%;
+                font-size: 12px;
+            }
+            &_subtitles {
+                width: 79%;
+                font-size: 12px;
+            }
         }
-        .button-secondary {
-            width: 189px;
-            height: 36px;
-            font-size: 16px;
+    }
+    @media (max-width: $screen-sm-max) {
+        header {
+            background-size: 100%;
+        }
+        .section-outer {
+            padding-left: 20px;
+            padding-right: 20px;
+        }
+        nav {
+            padding-top: 10px;
+            flex-direction: column;
+        }
+        .header-block {
+            padding-top: 25px;
+            min-width: 100%;
+            &_title {
+                width: 70%;
+            }
+        }
+    }
+
+    @media (max-width: $screen-md-max) {
+        .section-outer {
+            padding-left: 20px;
+            padding-right: 20px;
+        }
+        .header-block {
+            width: 80%;
+        }
+    }
+
+    @media (max-width: $screen-lg-max) {
+        .section-outer {
+            padding-left: 20px;
+            padding-right: 20px;
         }
     }
 }
+///=== / HEADER === ///

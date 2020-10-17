@@ -1,0 +1,14 @@
+@import "normalize.scss";
+
+@mixin font-lato {
+    font-family: "Roboto", sans-serif;
+}
+
+body {
+    @include font-lato;
+}
+
+.section-inner {
+    width: 1180;
+    margin: 0 auto;
+}

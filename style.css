@@ -462,6 +462,7 @@ header .content-box_btn .button-secondary {
 }
 .price .price-btn {
   padding-top: 60px;
+  padding-bottom: 150px;
   text-align: center;
 }
 .price .price-btn_subtitles {
@@ -490,4 +491,80 @@ header .content-box_btn .button-secondary {
 
 footer {
   background: #e7ecff;
+}
+footer .footer-content {
+  padding-top: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+footer .footer-content_menu {
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 24px;
+  color: #939ea4;
+}
+footer .footer-content .logo-text {
+  cursor: pointer;
+  font-weight: 900;
+  font-size: 26px;
+  line-height: 38px;
+  color: #37447e;
+}
+footer .footer-hr {
+  content: "";
+  border: 1px solid #cdd1d4;
+}
+footer .footer-content_menu {
+  padding-top: 20px;
+  padding-bottom: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+footer .footer-content_menu .footer-menu {
+  list-style: none;
+  display: flex;
+}
+footer .footer-content_menu .footer-menu a {
+  font-size: 14px;
+  padding-right: 50px;
+  color: #929ecc;
+}
+footer .footer-content_menu .footer-menu a:last-child {
+  padding: 0;
+}
+footer .footer-content_menu .footer-menu a:hover {
+  color: #111b47;
+}
+footer .footer-content_menu .footer-icon_img {
+  padding-left: 30px;
+}
+footer .footer-content_menu .footer-icon .footer-icon_img:hover {
+  color: #111b47;
+}
+
+@media (max-width: 575px) {
+  footer .footer-content .logo-text {
+    padding-top: 20px;
+  }
+
+  footer .footer-content {
+    flex-direction: column-reverse;
+  }
+
+  footer .footer-content_menu {
+    flex-direction: column;
+  }
+
+  footer .footer-content_menu .footer-icon {
+    padding-top: 10px;
+    padding-right: 30px;
+  }
+}
+@media (max-width: 1199px) {
+  .section-outer {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
 }
